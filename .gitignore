@@ -1,0 +1,31 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Local environment variables
+.env
+.env.*.local
+
+# Build / runtime output
+dist/
+build/
+logs/
+*.log
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Coverage & testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Jest cache (if ever used)
+jest-cache/
+jest-coverage/
+
+# dotenvx (if installed later)
+.env.*.vault
