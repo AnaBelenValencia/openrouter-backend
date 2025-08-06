@@ -5,14 +5,15 @@ import { prompts } from "../config/prompt.config.js";
  * Sends a user prompt to OpenRouter using the Mistral-7B-Instruct model
  * and returns a structured JSON response extracted from the model output.
  */
-export async function analyzePromptWithOpenRouter(prompt) {
+export async function analyzePromptWithOpenRouter(prompt, language) {
+  const constrainPrompt = language === 'es' ? prompt + 'debes responder en español' : prompt + 'you should response in english'
   const response = await axios.post(
     "https://openrouter.ai/api/v1/chat/completions",
     {
       model: "mistralai/mistral-7b-instruct",
       messages: [
         { role: "system", content: prompts.extractJson },
-        { role: "user", content: prompt },
+        { role: "user", content: constrainPrompt },
       ],
     },
     {

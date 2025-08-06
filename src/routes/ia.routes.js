@@ -9,7 +9,7 @@ const router = express.Router();
  * @access Public
  */
 router.post("/", async (req, res) => {
-  const { prompt } = req.body;
+  const { prompt, language } = req.body;
 
   // Validate input
   if (!prompt) {
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 
   try {
     // Process the input using the OpenRouter API
-    const json = await analyzePromptWithOpenRouter(prompt);
+    const json = await analyzePromptWithOpenRouter(prompt, language);
 
     // Return the structured JSON response
     res.json(json);
